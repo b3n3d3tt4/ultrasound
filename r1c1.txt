@@ -1,3 +1,4 @@
+# dati per la caratterizzazione in frequenza della prima parte della catena elettronica (R_1 C_1 x emettitore)
 100000	2.0 1.99
 50000	2.0 1.96
 20000	2.0 1.90
