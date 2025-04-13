@@ -639,7 +639,7 @@ def exponential(x, y, sx=None, sy=None, xlabel="X-axis", ylabel="Y-axis", titolo
     chi_squared_reduced = chi_squared / dof
 
     print(f"A = {A} ± {A_uncertainty}")
-    print(f"Tau = {tau} ± {tau_uncertainty}")
+    print(f"tau = {tau} ± {tau_uncertainty}")
     print(f"f0 = {f0} ± {f0_uncertainty}")
     print(f'Chi-squared = {chi_squared}')
     print(f'Reduced chi-squared = {chi_squared_reduced}')
