@@ -688,7 +688,7 @@ def exponential(x, y, sx=None, sy=None, xlabel="X-axis", ylabel="Y-axis", titolo
         ax1 = fig.add_subplot(gs[2, 0])  # Grafico principale
         ax1.errorbar(x, y, xerr=sx if np.any(sx != 0) else None,
                      yerr=sy if np.any(sy != 0) else None,
-                     fmt='*', color='black', label='Data', markersize=6, capsize=2)
+                     fmt='*', color='black', label='Data', markersize=5, capsize=2)
         ax1.plot(x_fit, exp(x_fit, *params), color='red', label='Exponential fit', lw=1.2)
         ax1.set_xlabel(xlabel)
         ax1.set_ylabel(ylabel)
@@ -698,7 +698,7 @@ def exponential(x, y, sx=None, sy=None, xlabel="X-axis", ylabel="Y-axis", titolo
 
         # Subplot 3: Residui
         ax2 = fig.add_subplot(gs[3:, 0], sharex=ax1)  # Grafico dei residui con altezza ridotta
-        ax2.scatter(x, residui, color='black', label='Residuals', s=10)
+        ax2.scatter(x, residui, color='black', label='Residuals', s=10, marker='*')
         ax2.axhline(0, color='red', linestyle='--', lw=2)  # Linea orizzontale a y=0
         ax2.set_xlabel(xlabel)
         ax2.set_ylabel("(data - fit)")
@@ -1032,10 +1032,6 @@ def lognormal(data=None, bin_centers=None, counts=None, xlabel="X-axis", ylabel=
     
     return params, uncertainties, chi_quadro, reduced_chi_quadro, [integral, integral_uncertainty], [x_fit, y_fit, bin_centers, counts]
 
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
-
 def bode(filename, tipo='basso', xlabel="Frequenza (Hz)", ylabel="Guadagno (dB)", titolo='Fit filtro', plot=False):
     # Lettura dati da file
     dati = np.loadtxt(filename)
@@ -1116,7 +1112,7 @@ def bode(filename, tipo='basso', xlabel="Frequenza (Hz)", ylabel="Guadagno (dB)"
 
         # Fit
         ax1 = fig.add_subplot(gs[2, 0])
-        ax1.scatter(frq, gain_dB, color='black', label='Dati', s=15)
+        ax1.scatter(frq, gain_dB, color='black', label='Dati', s=20, marker='*')
         ax1.plot(frq_fit, fit_curve, color='red', label='Fit')
         ax1.set_xscale('log')
         ax1.set_xlabel(xlabel)
@@ -1127,7 +1123,7 @@ def bode(filename, tipo='basso', xlabel="Frequenza (Hz)", ylabel="Guadagno (dB)"
 
         # Residui
         ax2 = fig.add_subplot(gs[3:, 0], sharex=ax1)
-        ax2.scatter(frq, residui, color='black', s=10, label='Residui')
+        ax2.scatter(frq, residui, color='black', s=20, label='Residui', marker='*')
         ax2.axhline(0, color='red', linestyle='--', lw=1)
         ax2.set_xlabel(xlabel)
         ax2.set_ylabel("Residui")
